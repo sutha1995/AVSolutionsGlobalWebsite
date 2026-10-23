@@ -1,0 +1,927 @@
+```html cleve-block title="AV Solutions Global Website Prototype"
+<div id="site-root">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html, body {
+      background: #08090c !important;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #site-root {
+      background: #08090c;
+      color: #f1f3f7;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      width: 100%;
+      position: relative;
+      padding-bottom: 80px;
+    }
+
+    /* Top Banner */
+    .top-bar {
+      background: #000000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px 16px;
+      color: #94a3b8;
+    }
+    .top-bar strong { color: #f8fafc; font-weight: 600; }
+
+    /* Navigation */
+    .site-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(8, 9, 12, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    /* Logo Branding */
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-seal-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #ffffff 0%, #ececec 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.18), 0 4px 15px rgba(0,0,0,0.6);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .brand-seal-border {
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+
+    .seal-monogram {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 19px;
+      line-height: 1;
+      color: #0b0c10;
+      letter-spacing: -0.5px;
+    }
+
+    .seal-sub-v {
+      width: 0;
+      height: 0;
+      border-left: 4.5px solid transparent;
+      border-right: 4.5px solid transparent;
+      border-top: 6px solid #0b0c10;
+      margin-top: 1px;
+    }
+
+    .brand-text-lockup {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 2px;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-whatsapp {
+      background: #ffffff;
+      color: #0b0c10;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      padding: 9px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-whatsapp:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 64px 24px 38px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 36px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      background: linear-gradient(180deg, #ffffff 20%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-bottom: 30px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .btn-luxury-primary {
+      background: #ffffff;
+      color: #0b0c10;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+    }
+    .btn-luxury-primary:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    .btn-luxury-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    .btn-luxury-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Trust / Credentials Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 22px 28px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* Section Headings */
+    .section-wrapper {
+      padding: 36px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    /* Brief Builder Card */
+    .builder-box {
+      background: #0f1117;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .builder-title {
+      font-family: 'Cinzel', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .builder-sub {
+      font-size: 13px;
+      color: #8da2be;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .builder-step {
+      margin-bottom: 20px;
+    }
+
+    .step-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .option-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .option-btn {
+      background: #171a22;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+    }
+
+    .option-btn.active {
+      background: #ffffff;
+      color: #090a0d;
+      border-color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Summary & Output Box */
+    .summary-card {
+      background: #08090c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 18px;
+      margin-top: 24px;
+    }
+
+    .summary-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #64748b;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .summary-preview {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      font-family: monospace;
+      white-space: pre-wrap;
+      margin-bottom: 16px;
+      background: #0d0f14;
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .send-whatsapp-btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 6px;
+      background: #22c55e;
+      color: #022c22;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .send-whatsapp-btn:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+    }
+
+    /* Core Capabilities */
+    .capabilities-section {
+      padding: 40px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .feature-card {
+      background: #0f1117;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      border-radius: 10px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .feature-card:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #8da2be;
+    }
+
+    /* Comparison Table / Execution vs Drop-off */
+    .comparison-section {
+      padding: 30px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .comparison-box {
+      background: #0c0e14;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12.5px;
+    }
+
+    .comparison-table th {
+      padding: 14px 18px;
+      background: #141720;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .comparison-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #94a3b8;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table td strong {
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+
+    .col-avs {
+      background: rgba(255, 255, 255, 0.02);
+      color: #e2e8f0 !important;
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 50px 20px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #64748b;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      margin-top: 40px;
+      background: #050608;
+    }
+
+    .footer-seal {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .footer-seal span {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: #0b0c10;
+      line-height: 1;
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel', serif;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .footer-contact-row {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #e2e8f0;
+      text-decoration: none;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .footer-contact-badge:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.25);
+      color: #ffffff;
+    }
+  </style>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    Official Technical Production Partner · <strong>Sound • Lighting • Engineering</strong>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="brand-container">
+      <div class="brand-seal-icon">
+        <div class="brand-seal-border"></div>
+        <span class="seal-monogram">AV</span>
+        <div class="seal-sub-v"></div>
+      </div>
+      <div class="brand-text-lockup">
+        <span class="brand-title">AV SOLUTIONS GLOBAL</span>
+        <span class="brand-subtitle">Event Organizers & AV Production</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="https://wa.me/60126172342" target="_blank" class="nav-whatsapp">
+        WhatsApp Desk · 012-617 2342
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-badge">Curated Audio-Visual & Technical Direction</div>
+    <h1 class="hero-title">Sound, Lighting & Technical Execution <br><span>Where Every Detail Matters.</span></h1>
+    <p class="hero-subtitle">
+      From high-profile corporate galas and luxury ballrooms to prestigious cultural showcases. We deliver calibrated acoustics, atmospheric lighting, and experienced on-site engineers so your event runs flawlessly.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-luxury-primary" onclick="scrollToBuilder()">Build Your Event Brief in 3 Taps</button>
+      <a href="https://wa.me/60126172342" target="_blank" class="btn-luxury-secondary">Direct WhatsApp Desk</a>
+    </div>
+  </div>
+
+  <!-- Credibility & Stats Bar -->
+  <div class="stats-bar">
+    <div>
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Showtime Reliability</div>
+    </div>
+    <div>
+      <div class="stat-number">End-to-End</div>
+      <div class="stat-label">Dedicated On-Site Crew</div>
+    </div>
+  </div>
+
+  <!-- Interactive Brief Builder -->
+  <div class="section-wrapper">
+    <div class="section-header">
+      <div class="section-eyebrow">Interactive Planning</div>
+      <h2 class="section-title">Design Your Event Setup</h2>
+    </div>
+
+    <div class="builder-box" id="brief-builder">
+      <div class="builder-title">⚡ Instant Event Brief Generator</div>
+      <div class="builder-sub">Select your event specs below. We'll generate a ready-to-send brief directly to our engineering desk via WhatsApp.</div>
+
+      <div class="builder-step">
+        <label class="step-label">1. Event Type</label>
+        <div class="option-pills" id="event-type-pills">
+          <button class="option-btn active" data-value="House Event" onclick="selectOption('event', 'House Event')">House Event</button>
+          <button class="option-btn" data-value="Birthday" onclick="selectOption('event', 'Birthday')">Birthday</button>
+          <button class="option-btn" data-value="Convocation" onclick="selectOption('event', 'Convocation')">Convocation</button>
+          <button class="option-btn" data-value="Corporate Parties" onclick="selectOption('event', 'Corporate Parties')">Corporate Parties</button>
+          <button class="option-btn" data-value="Business Launch" onclick="selectOption('event', 'Business Launch')">Business Launch</button>
+          <button class="option-btn" data-value="Product Launch" onclick="selectOption('event', 'Product Launch')">Product Launch</button>
+          <button class="option-btn" data-value="Cultural Events" onclick="selectOption('event', 'Cultural Events')">Cultural Events</button>
+          <button class="option-btn" data-value="Weddings" onclick="selectOption('event', 'Weddings')">Weddings</button>
+          <button class="option-btn" data-value="Mini Concerts" onclick="selectOption('event', 'Mini Concerts')">Mini Concerts</button>
+          <button class="option-btn" data-value="Sports Events" onclick="selectOption('event', 'Sports Events')">Sports Events</button>
+        </div>
+      </div>
+
+      <div class="builder-step">
+        <label class="step-label">2. Venue Scale</label>
+        <div class="option-pills" id="venue-pills">
+          <button class="option-btn active" data-value="Hotel Grand Ballroom" onclick="selectOption('venue', 'Hotel Grand Ballroom')">Hotel Grand Ballroom</button>
+          <button class="option-btn" data-value="Private Indoor Hall" onclick="selectOption('venue', 'Private Indoor Hall')">Private Indoor Hall</button>
+          <button class="option-btn" data-value="Outdoor / Marquee Setup" onclick="selectOption('venue', 'Outdoor / Marquee Setup')">Outdoor / Marquee Setup</button>
+          <button class="option-btn" data-value="Outdoor / Park" onclick="selectOption('venue', 'Outdoor / Park')">Outdoor / Park</button>
+          <button class="option-btn" data-value="Intimate Gallery / Retail" onclick="selectOption('venue', 'Intimate Gallery / Retail')">Intimate Gallery / Retail</button>
+        </div>
+      </div>
+
+      <div class="builder-step">
+        <label class="step-label">3. Indoor / Outdoor</label>
+        <div class="option-pills" id="setting-pills">
+          <button class="option-btn active" data-value="Indoor" onclick="selectOption('setting', 'Indoor')">Indoor</button>
+          <button class="option-btn" data-value="Outdoor" onclick="selectOption('setting', 'Outdoor')">Outdoor</button>
+        </div>
+      </div>
+
+      <div class="builder-step">
+        <label class="step-label">4. No. of Pax</label>
+        <div class="option-pills" id="pax-pills">
+          <button class="option-btn" data-value="Below 50" onclick="selectOption('pax', 'Below 50')">&lt;50</button>
+          <button class="option-btn active" data-value="50-150" onclick="selectOption('pax', '50-150')">50-150</button>
+          <button class="option-btn" data-value="150-300" onclick="selectOption('pax', '150-300')">150-300</button>
+          <button class="option-btn" data-value="300-500" onclick="selectOption('pax', '300-500')">300-500</button>
+          <button class="option-btn" data-value="500-1000" onclick="selectOption('pax', '500-1000')">500-1000</button>
+          <button class="option-btn" data-value="1000-1500" onclick="selectOption('pax', '1000-1500')">1000-1500</button>
+        </div>
+      </div>
+
+      <div class="builder-step">
+        <label class="step-label">5. Number of Days</label>
+        <div class="option-pills" id="days-pills">
+          <button class="option-btn active" data-value="1" onclick="selectOption('days', '1')">1</button>
+          <button class="option-btn" data-value="2" onclick="selectOption('days', '2')">2</button>
+          <button class="option-btn" data-value="3" onclick="selectOption('days', '3')">3</button>
+          <button class="option-btn" data-value="4+" onclick="selectOption('days', '4+')">4+</button>
+        </div>
+      </div>
+
+      <div class="builder-step">
+        <label class="step-label">6. Budget Range</label>
+        <div class="option-pills" id="budget-pills">
+          <button class="option-btn" data-value="RM3k - RM5k" onclick="selectOption('budget', 'RM3k - RM5k')">RM3k - RM5k</button>
+          <button class="option-btn" data-value="RM5k - RM10k" onclick="selectOption('budget', 'RM5k - RM10k')">RM5k - RM10k</button>
+          <button class="option-btn active" data-value="RM10k - RM50k" onclick="selectOption('budget', 'RM10k - RM50k')">RM10k - RM50k</button>
+          <button class="option-btn" data-value="RM50k - RM100k" onclick="selectOption('budget', 'RM50k - RM100k')">RM50k - RM100k</button>
+          <button class="option-btn" data-value="RM100k - RM200k" onclick="selectOption('budget', 'RM100k - RM200k')">RM100k - RM200k</button>
+        </div>
+      </div>
+
+      <div class="builder-step">
+        <label class="step-label">7. Service Requirement</label>
+        <div class="option-pills" id="service-pills">
+          <button class="option-btn active" data-value="Full Sound System + Lighting + Crew" onclick="selectOption('service', 'Full Sound System + Lighting + Crew')">Full Sound + Lighting + Crew</button>
+          <button class="option-btn" data-value="Sound-System Management Only" onclick="selectOption('service', 'Sound-System Management Only')">Sound-System Management Only</button>
+          <button class="option-btn" data-value="Stage Lighting & Truss Rigging" onclick="selectOption('service', 'Stage Lighting & Truss Rigging')">Stage Lighting & Truss Rigging</button>
+          <button class="option-btn" data-value="Installation of LED + Sound + Lighting + Event-related Projects" onclick="selectOption('service', 'Installation of LED + Sound + Lighting + Event-related Projects')">LED + Sound + Lighting Installation</button>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">WhatsApp Message Preview:</div>
+        <div class="summary-preview" id="brief-preview">Loading brief...</div>
+        <button class="send-whatsapp-btn" onclick="sendWhatsApp()">
+          Open in WhatsApp & Get Same-Day Quote
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Core Capabilities Section -->
+  <div class="capabilities-section">
+    <div class="section-header">
+      <div class="section-eyebrow">Production Standards</div>
+      <h2 class="section-title">Engineered for your Satisfaction</h2>
+    </div>
+
+    <div class="cards-grid">
+      <div class="feature-card">
+        <div class="card-icon">🔊</div>
+        <div class="card-title">Acoustic Precision</div>
+        <div class="card-desc">No muddy echoes, no piercing feedback. We map speaker dispersion to your specific room footprint and ceiling height.</div>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">💡</div>
+        <div class="card-title">Atmospheric Lighting</div>
+        <div class="card-desc">From warm ballroom washes to dramatic stage reveals that make your photography and VIP entrances stand out.</div>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">🛡️</div>
+        <div class="card-title">Safety & Adaptability</div>
+        <div class="card-desc">Rigid safety briefings, contingency equipment, and rapid on-site problem solving when venue schedules or room layouts shift.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Table: Drop-off vs Full Execution -->
+  <div class="comparison-section">
+    <div class="section-header">
+      <div class="section-eyebrow">The Difference</div>
+      <h2 class="section-title">Gear Rental vs. Technical Execution</h2>
+    </div>
+
+    <div class="comparison-box">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Standard</th>
+            <th style="width: 36%;">Typical Rental Houses</th>
+            <th class="col-avs" style="width: 36%;">AV Solutions Global</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Engineering</strong></td>
+            <td>Drops off speakers, plugs in cables, leaves</td>
+            <td class="col-avs">Calibrates room acoustics, maps delay towers, stays on console</td>
+          </tr>
+          <tr>
+            <td><strong>Crew Quality</strong></td>
+            <td>Freelance crew unfamiliar with event running sheet</td>
+            <td class="col-avs">Dedicated in-house sound and lighting directors</td>
+          </tr>
+          <tr>
+            <td><strong>Aesthetic Standard</strong></td>
+            <td>Visible loose cables and scuffed road cases</td>
+            <td class="col-avs">Concealed cable dressing, discreet black hardware rigs</td>
+          </tr>
+          <tr>
+            <td><strong>Contingency</strong></td>
+            <td>Delays when venue power or layout shifts</td>
+            <td class="col-avs">Redundant mics, backup routing, rapid on-site adaptation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-seal">
+      <span>AV</span>
+    </div>
+    <div class="footer-brand">AV SOLUTIONS GLOBAL</div>
+    <p style="color: #94a3b8; font-size: 13px; margin-bottom: 6px;">Event Organizers & Audio-Visual Production</p>
+    <p style="color: #64748b; font-size: 12px;">Serving Kuala Lumpur, Selangor & Peninsular Malaysia</p>
+    
+    <div class="footer-contact-row">
+      <a href="https://wa.me/60126172342" target="_blank" class="footer-contact-badge">
+        <span>💬</span> WhatsApp: 012-617 2342
+      </a>
+      <a href="https://www.tiktok.com/@avsolutionsglobal" target="_blank" class="footer-contact-badge">
+        <span>🎬</span> TikTok: @avsolutionsglobal
+      </a>
+    </div>
+
+    <div style="margin-top: 24px; font-size: 11px; color: #475569; letter-spacing: 1px; text-transform: uppercase;">
+      © 2026 AV Solutions Global. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    var state = {
+      event: 'House Event',
+      venue: 'Hotel Grand Ballroom',
+      setting: 'Indoor',
+      pax: '50-150',
+      days: '1',
+      budget: 'RM10k - RM50k',
+      service: 'Full Sound System + Lighting + Crew'
+    };
+
+    var PILL_CONTAINERS = {
+      event: 'event-type-pills',
+      venue: 'venue-pills',
+      setting: 'setting-pills',
+      pax: 'pax-pills',
+      days: 'days-pills',
+      budget: 'budget-pills',
+      service: 'service-pills'
+    };
+
+    function updatePreview() {
+      var msg = "Hi AV Solutions Global, I would like to check availability and get a quote for my upcoming event:\n\n" +
+        "• Event Type: " + state.event + "\n" +
+        "• Venue: " + state.venue + "\n" +
+        "• Setting: " + state.setting + "\n" +
+        "• Estimated Pax: " + state.pax + "\n" +
+        "• Duration: " + state.days + " day(s)\n" +
+        "• Budget Range: " + state.budget + "\n" +
+        "• Services Required: " + state.service + "\n\n" +
+        "Could you let me know your availability and package options?";
+      
+      var el = document.getElementById('brief-preview');
+      if (el) el.innerText = msg;
+    }
+
+    function selectOption(category, value) {
+      state[category] = value;
+
+      var container = document.getElementById(PILL_CONTAINERS[category]);
+      if (container) {
+        var buttons = container.getElementsByClassName('option-btn');
+        for (var i = 0; i < buttons.length; i++) {
+          if (buttons[i].getAttribute('data-value') === value) {
+            buttons[i].classList.add('active');
+          } else {
+            buttons[i].classList.remove('active');
+          }
+        }
+      }
+      updatePreview();
+    }
+
+    function sendWhatsApp() {
+      var phone = "60126172342";
+      var text = encodeURIComponent(document.getElementById('brief-preview').innerText);
+      window.open("https://wa.me/" + phone + "?text=" + text, "_blank");
+    }
+
+    function scrollToBuilder() {
+      var el = document.getElementById('brief-builder');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Trigger on load and window resize
+    function resizeIframe() {
+      if (window.parent && window.parent.postMessage) {
+        var height = document.body.scrollHeight || document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height: height }, '*');
+      }
+    }
+
+    updatePreview();
+    window.addEventListener('load', resizeIframe);
+    setTimeout(resizeIframe, 300);
+    setTimeout(resizeIframe, 1000);
+  </script>
+</div>
+```
