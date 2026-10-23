@@ -167,7 +167,7 @@ export default function ShowReel() {
   const launches = SHOWS.filter((item) => item.category === 'Product Launch')
   const miniConcerts = SHOWS.filter((item) => item.category === 'Mini Concert')
   const culturalEvents = SHOWS.filter((item) => item.category === 'Cultural Event')
-  const govermentMeetings = SHOWS.filter((item) => item.category === 'Goverment Meeting Setup')
+  const govermentMeetings = SHOWS.filter((item) => item.category === 'Government Meeting Setup')
   const installations = SHOWS.filter((item) => item.category === 'Installation')
   const eventPlanning = SHOWS.filter((item) => item.category === 'Event Planning')
   const featured = SHOWS.filter((item) => !item.category)
@@ -201,9 +201,9 @@ export default function ShowReel() {
         </div>
         <ReelRow items={culturalEvents} loopSeconds={30} />
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Goverment Meeting Setup show reel">
+      <section className="overflow-x-clip pb-10" aria-label="Government Meeting Setup show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
-          <SectionHeader eyebrow="Category" title="Goverment Meeting Setup" />
+          <SectionHeader eyebrow="Category" title="Government Meeting Setup" />
         </div>
         <ReelRow items={govermentMeetings} loopSeconds={30} />
       </section>
