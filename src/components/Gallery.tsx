@@ -22,12 +22,6 @@ const SLIDES: Slide[] = [
     sub: 'Production detail',
   },
   {
-    src: '/gallery/siti-nurhaliza.jpg',
-    alt: 'Live showcase engineered by AV Solutions Global',
-    caption: 'Siti Nurhaliza',
-    sub: 'Live showcase engineering',
-  },
-  {
     src: '/gallery/stage.jpg',
     alt: 'Full stage setup with sound and lighting rig',
     caption: 'Stage Setup',
