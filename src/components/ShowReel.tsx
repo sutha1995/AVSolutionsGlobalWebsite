@@ -189,6 +189,12 @@ export default function ShowReel() {
         </div>
         <ReelRow items={launches} loopSeconds={45} />
       </section>
+      <section className="overflow-x-clip pb-10" aria-label="Installation show reel">
+        <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
+          <SectionHeader eyebrow="Category" title="Installation" />
+        </div>
+        <ReelRow items={installations} loopSeconds={30} />
+      </section>
       <section className="overflow-x-clip pb-10" aria-label="Mini Concert show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Mini Concert" />
@@ -206,12 +212,6 @@ export default function ShowReel() {
           <SectionHeader eyebrow="Category" title="Government Meeting Setup" />
         </div>
         <ReelRow items={govermentMeetings} loopSeconds={30} />
-      </section>
-      <section className="overflow-x-clip pb-10" aria-label="Installation show reel">
-        <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
-          <SectionHeader eyebrow="Category" title="Installation" />
-        </div>
-        <ReelRow items={installations} loopSeconds={30} />
       </section>
       <section className="overflow-x-clip pb-10" aria-label="Event Planning show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
