@@ -179,15 +179,15 @@ export default function ShowReel() {
           <SectionHeader eyebrow="Category" title="Installation" />
         </div>
         <ReelRow items={installations} loopSeconds={30} />
+        <p className="mt-4 text-center text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
+          Hover to pause · Drag the bar to browse · {SHOWS.length} shows &amp; counting
+        </p>
       </section>
       <section className="overflow-x-clip pb-10" aria-label="Show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Production Gallery" title="Straight From Our Shows" />
         </div>
         <ReelRow items={featured} loopSeconds={150} />
-        <p className="mt-4 text-center text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
-          Hover to pause · Drag the bar to browse · {SHOWS.length} shows &amp; counting
-        </p>
       </section>
       <section className="overflow-x-clip pb-10" aria-label="Product Launch show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
