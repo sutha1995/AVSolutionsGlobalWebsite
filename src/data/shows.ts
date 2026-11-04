@@ -25,6 +25,7 @@ export const SHOWS: ShowMedia[] = [
   { src: '/shows/reel-10.mp4', type: 'video', caption: 'Mini Concert', category: 'Mini Concert', description: 'An industrial place with cement flooring turned into a party atmosphere with an ethereal ambiance' },
   { src: '/shows/reel-12.mp4', type: 'video', caption: 'Luxury Brand Product Launch', category: 'Product Launch' },
   { src: '/shows/reel-13.mp4', type: 'video', caption: 'Annual Dinner', category: 'Mini Concert' },
+  { src: '/shows/Annual Dinner/annual-dinner-01.jpeg', type: 'image', caption: 'Annual Dinner', category: 'Mini Concert' },
   { src: '/shows/reel-14.mp4', type: 'video', caption: 'Siti Nurhaliza Stage Performance' },
   { src: '/shows/reel-15.mp4', type: 'video', caption: 'Siti Nurhaliza Stage Performance' },
   { src: '/shows/reel-16.mp4', type: 'video', caption: 'Lighting Performance' },
