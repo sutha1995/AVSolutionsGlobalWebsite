@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import SectionHeader from './SectionHeader'
 
 type Slide = {
@@ -6,6 +7,7 @@ type Slide = {
   alt: string
   caption: string
   sub: string
+  href: string
 }
 
 const SLIDES: Slide[] = [
@@ -14,18 +16,28 @@ const SLIDES: Slide[] = [
     alt: 'AV crew setting up and calibrating equipment behind the scenes',
     caption: 'Behind the Scenes',
     sub: 'Crew & engineering at work',
+    href: '/services#straight-from-our-shows',
   },
   {
-    src: '/gallery/lor-cutout.jpg',
-    alt: 'LOR cutout lighting production detail',
-    caption: 'LOR Cutout',
-    sub: 'Production detail',
+    src: '/shows/Installation/img-02.jpg',
+    alt: 'Technician rigging a line array speaker system during installation',
+    caption: 'Speaker Installation',
+    sub: 'Line array rigging',
+    href: '/services#installation',
+  },
+  {
+    src: '/shows/Installation/img-04.jpg',
+    alt: 'Completed outdoor LED screen billboard installation',
+    caption: 'LED Screen Installation',
+    sub: 'Outdoor LED display',
+    href: '/services#installation',
   },
   {
     src: '/gallery/stage.jpg',
     alt: 'Full stage setup with sound and lighting rig',
     caption: 'Stage Setup',
     sub: 'Full production rig',
+    href: '/services#straight-from-our-shows',
   },
 ]
 
@@ -88,11 +100,13 @@ export default function Gallery() {
           style={{ transform: `rotateY(${-active * STEP_DEG}deg)`, transformStyle: 'preserve-3d' }}
         >
           {SLIDES.map((slide, i) => (
-            <button
+            <Link
               key={slide.src}
-              type="button"
+              to={slide.href}
               aria-label={`View ${slide.caption}`}
-              onClick={() => setActive(i)}
+              onClick={() => {
+                if (i !== active) setActive(i)
+              }}
               className="absolute left-1/2 top-1/2 cursor-pointer overflow-hidden rounded-xl border border-white/[0.12] bg-panel [backface-visibility:hidden]"
               style={{
                 width: layout.cardW,
@@ -116,7 +130,7 @@ export default function Gallery() {
                   {slide.sub}
                 </div>
               </div>
-            </button>
+            </Link>
           ))}
         </div>
       </div>

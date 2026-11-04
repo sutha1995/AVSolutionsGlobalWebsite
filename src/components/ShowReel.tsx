@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import SectionHeader from './SectionHeader'
 import { SHOWS, type ShowMedia } from '../data/shows'
 
-function Slide({ src, type, caption, description }: ShowMedia) {
+function Slide({ src, type, caption, description, slideClass }: ShowMedia & { slideClass?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -24,7 +24,9 @@ function Slide({ src, type, caption, description }: ShowMedia) {
   }, [type])
 
   return (
-    <figure className="relative h-[62vh] max-h-[560px] w-[78vw] max-w-[420px] shrink-0 overflow-hidden rounded-2xl border border-white/[0.12] bg-panel sm:w-[44vw] lg:w-[30vw]">
+    <figure
+      className={`relative h-[62vh] max-h-[560px] shrink-0 overflow-hidden rounded-2xl border border-white/[0.12] bg-panel ${slideClass ?? 'w-[78vw] max-w-[420px] sm:w-[44vw] lg:w-[30vw]'}`}
+    >
       {type === 'video' ? (
         <video
           ref={videoRef}
@@ -49,9 +51,10 @@ function Slide({ src, type, caption, description }: ShowMedia) {
 type ReelRowProps = {
   items: ShowMedia[]
   loopSeconds: number
+  slideClass?: string
 }
 
-function ReelRow({ items, loopSeconds }: ReelRowProps) {
+function ReelRow({ items, loopSeconds, slideClass }: ReelRowProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const barRef = useRef<HTMLDivElement>(null)
   const thumbRef = useRef<HTMLDivElement>(null)
@@ -131,7 +134,7 @@ function ReelRow({ items, loopSeconds }: ReelRowProps) {
             style={{ animationDuration: `${loopSeconds}s` }}
           >
             {trackItems.map((item, i) => (
-              <Slide key={`${item.src}-${i}`} {...item} />
+              <Slide key={`${item.src}-${i}`} {...item} slideClass={slideClass} />
             ))}
           </div>
         </div>
@@ -174,7 +177,7 @@ export default function ShowReel() {
 
   return (
     <>
-      <section className="overflow-x-clip py-10" aria-label="Installation show reel">
+      <section id="installation" className="overflow-x-clip py-10" aria-label="Installation show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Installation" />
         </div>
@@ -183,37 +186,41 @@ export default function ShowReel() {
           Hover to pause · Drag the bar to browse · {SHOWS.length} shows &amp; counting
         </p>
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Show reel">
+      <section id="straight-from-our-shows" className="overflow-x-clip pb-10" aria-label="Show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Production Gallery" title="Straight From Our Shows" />
         </div>
         <ReelRow items={featured} loopSeconds={150} />
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Product Launch show reel">
+      <section id="product-launch" className="overflow-x-clip pb-10" aria-label="Product Launch show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Product Launch" />
         </div>
         <ReelRow items={launches} loopSeconds={45} />
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Mini Concert show reel">
+      <section id="mini-concert" className="overflow-x-clip pb-10" aria-label="Mini Concert show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Mini Concert" />
         </div>
         <ReelRow items={miniConcerts} loopSeconds={30} />
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Cultural Event show reel">
+      <section id="cultural-event" className="overflow-x-clip pb-10" aria-label="Cultural Event show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Cultural Event" />
         </div>
         <ReelRow items={culturalEvents} loopSeconds={30} />
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Government Meeting Setup show reel">
+      <section id="government-meeting-setup" className="overflow-x-clip pb-10" aria-label="Government Meeting Setup show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Government Meeting Setup" />
         </div>
-        <ReelRow items={govermentMeetings} loopSeconds={30} />
+        <ReelRow
+          items={govermentMeetings}
+          loopSeconds={30}
+          slideClass="w-[78vw] max-w-[420px] sm:w-[44vw] lg:w-[34vw] lg:max-w-none lg:max-h-[680px]"
+        />
       </section>
-      <section className="overflow-x-clip pb-10" aria-label="Event Planning show reel">
+      <section id="event-planning" className="overflow-x-clip pb-10" aria-label="Event Planning show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
           <SectionHeader eyebrow="Category" title="Event Planning" />
         </div>
