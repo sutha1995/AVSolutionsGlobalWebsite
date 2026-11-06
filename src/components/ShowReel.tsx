@@ -170,7 +170,7 @@ export default function ShowReel() {
   const launches = SHOWS.filter((item) => item.category === 'Product Launch')
   const miniConcerts = SHOWS.filter((item) => item.category === 'Mini Concert')
   const culturalEvents = SHOWS.filter((item) => item.category === 'Cultural Event')
-  const govermentMeetings = SHOWS.filter((item) => item.category === 'Government Meeting Setup')
+  const conferenceSetups = SHOWS.filter((item) => item.category === 'Conference Setup')
   const installations = SHOWS.filter((item) => item.category === 'Installation')
   const eventPlanning = SHOWS.filter((item) => item.category === 'Event Planning')
   const featured = SHOWS.filter((item) => !item.category)
@@ -210,12 +210,12 @@ export default function ShowReel() {
         </div>
         <ReelRow items={culturalEvents} loopSeconds={30} />
       </section>
-      <section id="government-meeting-setup" className="overflow-x-clip pb-10" aria-label="Government Meeting Setup show reel">
+      <section id="conference-setup" className="overflow-x-clip pb-10" aria-label="Conference Setup show reel">
         <div className="mx-auto mb-8 w-full max-w-[900px] px-6">
-          <SectionHeader eyebrow="Category" title="Government Meeting Setup" />
+          <SectionHeader eyebrow="Category" title="Conference Setup" />
         </div>
         <ReelRow
-          items={govermentMeetings}
+          items={conferenceSetups}
           loopSeconds={30}
           slideClass="w-[78vw] max-w-[420px] sm:w-[44vw] lg:w-[34vw] lg:max-w-none lg:max-h-[680px]"
         />

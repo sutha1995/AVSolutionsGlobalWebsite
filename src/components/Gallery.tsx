@@ -26,11 +26,11 @@ const SLIDES: Slide[] = [
     href: '/services#installation',
   },
   {
-    src: '/shows/Installation/img-04.jpg',
-    alt: 'Completed outdoor LED screen billboard installation',
-    caption: 'LED Screen Installation',
-    sub: 'Outdoor LED display',
-    href: '/services#installation',
+    src: '/shows/Annual Dinner/annual-dinner-01.jpeg',
+    alt: 'Annual dinner event with stage sound and lighting production',
+    caption: 'Annual Dinner',
+    sub: 'Gala night production',
+    href: '/services#mini-concert',
   },
   {
     src: '/gallery/stage.jpg',
